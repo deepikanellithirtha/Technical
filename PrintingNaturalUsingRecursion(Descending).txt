@@ -1,0 +1,13 @@
+public class PrintingNaturalUsingRecursion {
+	static void printNaturalNumbers(int n) {
+		if (n == 0)
+			return;
+		printNaturalNumbers(n-1);//Head recursion
+		System.out.println(n);
+		//printNaturalNumbers(n-1);//Tail recursion
+	}
+	public static void main(String[] args) {
+		int n = new java.util.Scanner(System.in).nextInt();
+		printNaturalNumbers(n);
+	}
+}

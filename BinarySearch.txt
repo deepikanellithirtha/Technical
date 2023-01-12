@@ -1,0 +1,20 @@
+import java.util.Arrays;
+public class Binarysearch {
+	public static void main(String[] args) {
+		int arr[] = {10,20,11,7,9,5};
+		Arrays.sort(arr);
+		int search = new java.util.Scanner(System.in).nextInt();
+		for(int lb =0,ub = arr.length-1; lb<=ub;) {
+			int mid = (lb+ub)/2;
+			if(arr[mid] == search) {
+				System.out.println("Found @ " +mid);
+				System.exit(0);
+			}
+			else if (arr[mid]<search)
+				lb = mid+1;
+			else
+				ub = mid -1;
+		}
+		System.out.println("not found");
+	}
+}
