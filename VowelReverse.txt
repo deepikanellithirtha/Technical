@@ -1,0 +1,45 @@
+public class VowelReverse {
+	public static boolean isVowel(char ch) {
+		return aeiouAEIOU.contains(+ch);
+	}
+	public static String reverseVowel(String str1) {
+		char[] str = str1.toCharArray();
+		for (int i = 0, j=str.length-1;ij;i++, j--) {
+			if (isVowel(str[i]) && isVowel(str[j])) {
+				char temp = str[i];
+				str[i] = str[j];
+				str[j] = temp;
+			}
+			else if (isVowel(str[i]))
+				i--;
+			else if (isVowel(str[j]))
+				j++;
+		}	
+		return new String(str);
+	}
+	public static boolean isConsonant(char ch){
+		return Character.isLetter(ch) && !isVowel(ch);
+	}
+	public static String reverseConsonant(String str1) {
+		char[] str = str1.toCharArray();
+		for (int i = 0, j=str.length-1;ij;i++, j--) {
+			if (isConsonant(str[i]) && isConsonant(str[j])) {
+				char temp = str[i];
+				str[i] = str[j];
+				str[j] = temp;
+			}
+			else if (isConsonant(str[i]))
+				i--;
+			else if (isConsonant(str[j]))
+				j++;
+		}	
+		return new String(str);		
+	}
+	public static void main(String[] args) {
+		String str1 = new java.util.Scanner(System.in).nextLine();
+		
+		System.out.println(reverseVowel(str1));
+		System.out.println(reverseConsonant(str1));
+	}
+
+}
