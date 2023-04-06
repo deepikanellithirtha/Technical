@@ -1,0 +1,28 @@
+package basics;
+
+import java.util.Scanner;
+
+public class OTPGeneration {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		long accNo = in.nextLong();
+		int userOTP;
+		String saccNo = "" + accNo;
+		String OTP = "";
+		//Generating 6 digit OTP
+		for (int i = 1; i<=6; i++)
+			OTP+=saccNo.charAt((int)(Math.random() * saccNo.length()));
+		System.out.println("OTP : "+OTP);
+		for (int i = 1; i<=3; i++) {
+			System.out.print("Enter OTP : ");
+			userOTP = in.nextInt();
+			if (userOTP == Integer.parseInt(OTP)) {
+				System.out.println("Transaction successful!");
+				System.exit(0); //Terminating the application
+			}
+			else
+				System.out.println("Invalid OTP!");
+		}
+		System.out.println("3 attempts are over. Transaction failed!");
+	}
+}
