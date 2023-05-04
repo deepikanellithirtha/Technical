@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class ExceptionDemo {
+
+	public static void main(String[] args) {
+		System.out.println("Exception handling demo");
+		Scanner in = new Scanner(System.in);
+		int x,y,z;
+		x = in.nextInt();
+		y = in.nextInt(); 
+		try {
+			z = x /y;
+			System.out.println(z);
+		}
+		catch(ArithmeticException ex) {
+			System.out.println("Denominator should be non-zero");
+		}
+		
+		System.out.println("Thank you!");
+	}
+}
